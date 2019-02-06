@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+               // archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
         
@@ -17,7 +17,7 @@ pipeline {
                                    
             steps {
                 script {
-                    app = docker.build("suhita/node-app")
+                    app = docker.build("suhita/Spring-app")
                     app.inside {
                         sh 'echo $(curl localhost:8081)'
                     }
