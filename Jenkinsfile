@@ -17,7 +17,7 @@ pipeline {
                                    
             steps {
                 script {
-                    app = docker.build("suhita/Spring-app")
+                    app = docker.build("suhita/spring-app")
                     app.inside {
                         sh 'echo $(curl localhost:8081)'
                     }
